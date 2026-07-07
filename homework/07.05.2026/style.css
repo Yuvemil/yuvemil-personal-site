@@ -1,0 +1,42 @@
+:root {
+	--bg: #050505; /* black */
+        --text: #b0b0b0; /* grey */
+        --accent: #a38a3d; /* gold */
+}
+
+
+body {
+	gap: 5rem;
+	color: var(--text);
+	background-color: var(--bg);
+	max-width: 1220px;
+	margin: auto;
+}
+
+.process {
+	padding: 2rem;
+	max-width: 200rem;
+	border: solid;
+	list-style-position: inside;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.process > li {
+	padding: 2rem;
+	border: dashed;
+	margin: 2rem 10px 2rem 10px;
+	flex: 1 1 auto;
+	min-width: 130px;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+}
+
+.process li {
+	padding: 1rem;
+}
+
+h1, h2 {
+	color: var(--accent);
+}
+

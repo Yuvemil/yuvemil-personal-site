@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>How I Listen to Music</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<h1> I listen to music in two parts: </h1>
+		<ol>
+			<li> Find music on YouTube to listen to, or </li>
+			<li> Download said music to my machine and then use rmpc to listen to it locally. </li>
+		</ol>
+
+		<h2>
+			Why Youtube?
+		</h2>
+		<p>YouTube, or should I say, Google's data gathering and analysis is one of the, if not, the best user recommendation algorithms that exist in our world. Music discovery has never been easier if you give Google an insight to what you enjoy. The only issue I have with it is that it is Google. That's why I try to limit my usage as much as possible, while transferring what I like locally.</p>
+		<h2>
+			Local Music
+		</h2>
+		<p>I download music online to my machine. After filtering/cleaning up the metadata of the music, I then add them to local music player, RMPC (Rust Music Player Controller). This allows me to get on-demand music with no internet connectivity needed and, more importantly, away from Google's grasp.</p>
+		<h2>
+			The Full Process
+		</h2>
+		<p>This is my full process from searching for music, to finally listening/maintaining the music on my machine.</p>
+		<ol class="process">
+			<li> Open YouTube on your chosen account.
+				<ul>
+					<li> Note that you should choose the account where Google has the most data on your music preferences. Typically, this is going to be your main Google account. </li>
+					<li> Furthermore, even if you never use YouTube, as long as you use other Google services, you should still get a decent amouont of recommendations on YouTube. </li>
+				</ul>
+			</li>
+			<li> In the home page, filter videos by "Music" or go to YouTube Music.</li>
+			<li> Select and choose the music you want on your computer.</li>
+			<li> Once you have decided, click the "Share" button and copy the link provided.
+				<ul>
+					<li> Note that a lot of music-related videos come in Google-curated playlists, so copying the link in the search bar is copying part of the playlist, rather than just the video itself. This will make you download all the songs in said playlist.</li>
+				</ul>
+			</li>
+			<li> Next, export this to your machine. I'm sure there are many ways to do so, but the easiest, and most convenient, is to use "yt-dlp". I have created a small function using yt-dlp that auto selects the options I want: 
+				<ul>
+					<li> -x (to extract audio) </li> 
+					<li> --audio-fromat opus (newer and generally better audio format) </li> 
+					<li> --audio-quality 128k </li>
+					<li> --embed-metadata (important to have this for storing and categorizing the music later)</li>
+					<li> --embed-thumbnail </li>
+					<li> --convert-thumbnails jpg </li>
+					<li> -o "..." (put in the path of the output you want this to be downloaded to) </li>
+				</ul>
+			</li>
+		</ol>
+
+
+	</body>
+</html>
+
+

@@ -1,0 +1,68 @@
+:root {
+	--bg: #050505; /* black */
+	--text: #b0b0b0; /* grey */
+	--accent: #a38a3d; /* gold */
+}
+
+@font-face {
+	font-family: 'Cinzel';
+	src: url('fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Elms';
+	src: url('fonts/Elms_Sans/static/ElmsSans-Regular.ttf') format('truetype');
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	max-width: 50rem;
+	margin: 0 auto;
+	padding: 2rem;
+	border: 1px solid var(--accent);
+	font-family: 'Elms', sans-serif;
+	background-image:
+		radial-gradient(1px 1px at 199px 91px, white, transparent), 
+		radial-gradient(1px 1px at 59px 72px, white, transparent), 
+		radial-gradient(1px 1px at 192px 22px, white, transparent), 
+		radial-gradient(1px 1px at 110px 28px, white, transparent), 
+		radial-gradient(1px 1px at 114px 191px, white, transparent), 
+		radial-gradient(1px 1px at 114px 191px, white, transparent), 
+		radial-gradient(1px 1px at 66px 142px, white, transparent), 
+		radial-gradient(1px 1px at 660px 42px, white, transparent), 
+		radial-gradient(1px 1px at 45px 49px, white, transparent), 
+		radial-gradient(1px 1px at 134px 149px, white, transparent), 
+		radial-gradient(1px 1px at 148px 453px, white, transparent), 
+		radial-gradient(1px 1px at 148px 153px, white, transparent); 
+	background-size: 200px 200px;
+	background-repeat: repeat;
+}
+
+.interests {
+	line-height: 2;
+	display: flex;
+	gap: 5rem;
+	flex-wrap: wrap;
+}
+
+.interests > li {
+	padding: 2rem;
+	border: 1px solid var(--accent);
+	list-style: none;
+	flex: 1 1 250px;
+	color: var(--accent);
+}
+
+.interests > li:hover {
+	box-shadow: 5px 5px 500px var(--accent), -5px -5px 500px var(--accent);
+}
+
+.interest {
+	color: var(--text);
+}
+
+h1, h2 {
+	font-family: 'Cinzel', serif;
+	text-shadow: 0.1rem 0.3rem 0 var(--accent);
+}
