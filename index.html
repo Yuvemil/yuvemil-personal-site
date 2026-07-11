@@ -31,7 +31,20 @@
 		<h2>What are Void's current updates?</h2>
 		<p> I am currently writing this html + css for fun; hopefully, I will be able to create my own personal "indie" site and have e-neighbours to my personal site.</p>
 		<script> console.log("This script has been activated.")</script>
-		<script> document.querySelectorAll(".interest > li").forEach((card) => { card.addEventListener("click", () => prompt("Thanks for clicking!"))}) </script>
+		<script>
+			document.querySelectorAll(".interest").forEach((explanation) => {
+				explanation.addEventListener("click", (explanationClick) => {
+					if(explanationClick.target.closest("li")) {
+						var newUserText = prompt("Add new explanation to this list!");
+						newUserText;
+						var newListItem = document.createElement("li");
+						newListItem.textContent = newUserText;
+						console.log(explanation);
+						explanation.appendChild(newListItem);
+					}
+				})
+			})
+		</script>
 	</body>
 </html>
 
