@@ -6,6 +6,7 @@
 		<title>First HTML project!</title>
 	</head>
 	<body>
+		<nav><a href='souvenirs.html'>Souvenirs</a></nav>
 		<h1> My name is Void.</h1>
 		<p> This is my first HTML project. This project is being aided by Claude Code!</p>
 
@@ -30,7 +31,26 @@
 		</ol>
 		<h2>What are Void's current updates?</h2>
 		<p> I am currently writing this html + css for fun; hopefully, I will be able to create my own personal "indie" site and have e-neighbours to my personal site.</p>
-		<script> console.log("This script has been activated.")</script>
+		<h2>Wandering Messages</h2>
+		<form>
+			Enter comment:
+			<input class='userComment' type='text'>
+			<input type='submit'>
+		</form>
+		<ul class='comments'>
+		</ul>
+		<script>
+			document.querySelector('form').addEventListener('submit', submitMessage);
+
+			function submitMessage(event) {
+				const newLi = document.createElement('li');
+				const userComment = event.target.querySelector('.userComment');
+				newLi.textContent = userComment.value;
+				document.querySelector('.comments').appendChild(newLi);
+				userComment.value = "";
+				event.preventDefault();
+			}
+		</script>
 		<script>
 			document.querySelectorAll(".interest").forEach((explanation) => {
 				explanation.addEventListener("click", (explanationClick) => {

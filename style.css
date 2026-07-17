@@ -4,24 +4,8 @@
 	--accent: #a38a3d; /* gold */
 }
 
-@font-face {
-	font-family: 'Cinzel';
-	src: url('fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'Elms';
-	src: url('fonts/Elms_Sans/static/ElmsSans-Regular.ttf') format('truetype');
-}
-
-body {
+html {
 	background-color: var(--bg);
-	color: var(--text);
-	max-width: 50rem;
-	margin: 0 auto;
-	padding: 2rem;
-	border: 1px solid var(--accent);
-	font-family: 'Elms', sans-serif;
 	background-image:
 		radial-gradient(1px 1px at 199px 91px, white, transparent), 
 		radial-gradient(1px 1px at 59px 72px, white, transparent), 
@@ -37,6 +21,25 @@ body {
 		radial-gradient(1px 1px at 148px 153px, white, transparent); 
 	background-size: 200px 200px;
 	background-repeat: repeat;
+}
+
+@font-face {
+	font-family: 'Cinzel';
+	src: url('fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Elms';
+	src: url('fonts/Elms_Sans/static/ElmsSans-Regular.ttf') format('truetype');
+}
+
+body {
+	color: var(--text);
+	max-width: 50rem;
+	margin: 0 auto;
+	padding: 2rem;
+	border: 1px solid var(--accent);
+	font-family: 'Elms', sans-serif;
 }
 
 .interests {

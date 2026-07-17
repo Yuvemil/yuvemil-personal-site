@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Send your mail about my page!</title>
+		<meta charset='UTF-8'>
+		<link rel='stylesheet' href='style.css'>
+	</head>
+	<body>
+		<h1> Void's Inbound Comments </h1>
+		<p>Add your comments on my page below!</p>
+		<h2>Comments:</h2>
+		<ul class='comments'>
+			<li><span>First comment!</span></li>
+		</ul>
+		<script>
+			document.querySelector('.comments').addEventListener('click', (commentClick) => {
+				var newListItem = document.createElement("li");
+				newListItem.textContent = prompt("Add new comment!");
+				commentClick.currentTarget.appendChild(newListItem);
+			})
+		</script>
+
+	</body>
+</html>
+
