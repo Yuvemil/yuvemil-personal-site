@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Grocery List</title>
+	</head>
+	<body>
+		<form>
+			<input class='grocery' type='text'>
+			<input class='submit' type='submit'>
+		</form>
+
+		<ol>
+		</ol>
+
+		<script>
+			if(!localStorage.getItem('storedGroceryArray')) {
+				var groceryArray = [];
+			} else {
+				var groceryArray = JSON.parse(localStorage.getItem('storedGroceryArray'));
+				for (let item of groceryArray) {
+					const newLi = document.createElement('li');
+					newLi.textContent = item;
+					document.querySelector('ol').appendChild(newLi);
+				};
+			};
+
+		</script>
+
+
+		<script> //add new grocery item to the list
+			document.querySelector('.submit').addEventListener('click', submitGroceryItem)
+
+			function submitGroceryItem(event) {
+				const newLi = document.createElement('li');
+				const textBox = document.querySelector('.grocery');
+
+				if (textBox.value === "") {
+					console.log("Please add an item.");
+					event.preventDefault();
+				} else {
+					newLi.textContent = textBox.value;
+					document.querySelector('ol').appendChild(newLi);
+					// add grocery list to local storage
+					groceryArray.push(newLi.textContent);
+					localStorage.setItem('storedGroceryArray', JSON.stringify(groceryArray));
+					//
+					textBox.value = "";
+					event.preventDefault();
+				}
+
+			}
+		</script>
+	</body>
+</html>
+
