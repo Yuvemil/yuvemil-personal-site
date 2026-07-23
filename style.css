@@ -83,6 +83,11 @@ h1, h2 {
 .postcardCollection {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+	list-style: none;
+}
+
+.postcardCollection > li {
+	display: grid;
 }
 
 
@@ -100,6 +105,21 @@ h1, h2 {
 		'main bottomRight'
 		'bottom bottom'
 		'comments comments';
+}
+
+@media only screen and (max-width: 399px) {
+	.profile-page {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'intro'
+			'main'
+			'topRight'
+			'midRight'
+			'bottomRight'
+			'bottom'
+			'comments';
+	}
 }
 
 nav a:visited{
