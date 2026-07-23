@@ -13,11 +13,13 @@
 		<ol>
 		</ol>
 
-		<script>
+		<script> //add locally-stored grocery items to the list on page load
+			let groceryArray;
+
 			if(!localStorage.getItem('storedGroceryArray')) {
-				var groceryArray = [];
+				groceryArray = [];
 			} else {
-				var groceryArray = JSON.parse(localStorage.getItem('storedGroceryArray'));
+				groceryArray = JSON.parse(localStorage.getItem('storedGroceryArray'));
 				for (let item of groceryArray) {
 					const newLi = document.createElement('li');
 					newLi.textContent = item;

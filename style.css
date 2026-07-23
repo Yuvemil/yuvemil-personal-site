@@ -1,11 +1,16 @@
 :root {
-	--bg: #050505; /* black */
-	--text: #b0b0b0; /* grey */
-	--accent: #a38a3d; /* gold */
+	--void: #040405; /* black */
+	--known: #c2c4c7; /* silver */
+	--lurking-shadows: #23262d; /* shadow grey */
+	--old-gods: #857143; /* olive wood */
+	--faint-starlight: #7ea9b8; /* cool steel */
+	--life: #5d181c; /* night bordeaux */
+	--space-dust: #5f4c7a; /* dusty grape */
+
 }
 
 html {
-	background-color: var(--bg);
+	background-color: var(--void);
 	background-image:
 		radial-gradient(1px 1px at 199px 91px, white, transparent), 
 		radial-gradient(1px 1px at 59px 72px, white, transparent), 
@@ -33,13 +38,18 @@ html {
 	src: url('fonts/Elms_Sans/static/ElmsSans-Regular.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'IBM';
+	src: url('fonts/IBMPlexSans/static/IBMPlexSans-Medium.ttf') format('truetype');
+}
+
 body {
-	color: var(--text);
+	color: var(--known);
 	max-width: 50rem;
 	margin: 0 auto;
 	padding: 2rem;
-	border: 1px solid var(--accent);
 	font-family: 'Elms', sans-serif;
+
 }
 
 .interests {
@@ -51,21 +61,85 @@ body {
 
 .interests > li {
 	padding: 2rem;
-	border: 1px solid var(--accent);
+	border: 1px solid var(--old-gods);
 	list-style: none;
 	flex: 1 1 250px;
-	color: var(--accent);
+	color: var(--old-gods);
 }
 
 .interests > li:hover {
-	box-shadow: 5px 5px 500px var(--accent), -5px -5px 500px var(--accent);
+	box-shadow: 5px 5px 500px var(--old-gods), -5px -5px 500px var(--old-gods);
 }
 
 .interest {
-	color: var(--text);
+	color: var(--known);
 }
 
 h1, h2 {
 	font-family: 'Cinzel', serif;
-	text-shadow: 0.1rem 0.3rem 0 var(--accent);
+	text-shadow: 0.1rem 0.3rem 0 var(--old-gods);
+}
+
+.postcardCollection {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+
+/* ///////////Profile///////// */
+
+.profile-page {
+	max-width: 62rem;
+	gap: 1rem;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-areas:
+		'intro intro'
+		'main topRight'
+		'main midRight'
+		'main bottomRight'
+		'bottom bottom'
+		'comments comments';
+}
+
+nav a:visited{
+	color: var(--life);
+}
+
+nav a:hover {
+	color: var(--faint-starlight);
+}
+
+nav a {
+	color: var(--space-dust);
+	text-decoration: none;
+}
+
+#topIntro {
+	grid-area: intro;
+	border-bottom: solid var(--lurking-shadows);
+}
+
+#mainContent {
+	grid-area: main;
+}
+
+#topRightSidebar {
+	grid-area: topRight;
+}
+
+#midRightSidebar {
+	grid-area: midRight;
+}
+
+#bottomRightSidebar {
+	grid-area: bottomRight;
+}
+
+#bottomComments {
+	grid-area: bottom;
+}
+
+#commentSection {
+	grid-area: comments;
 }

@@ -1,90 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<link rel="stylesheet" href="style.css">
-		<meta charset="UTF-8">
-		<title>First HTML project!</title>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		<link rel='stylesheet' href='style.css'>
+		<title>Yuvemil</title>
 	</head>
-	<body>
-		<nav><a href='souvenirs.html'>Souvenirs</a></nav>
-		<h1> My name is Void.</h1>
-		<p> This is my first HTML project. This project is being aided by Claude Code!</p>
 
-		<h2> Who is Void?</h2>
-		<p> Void, that is to say me, is a name I chose for myself as an alias for my real, legal name. The name follows naturally with my interest of the void, eldritch, space, and being alone. Maybe it is because I am a solitary individual, one who stays away from others, and one who enjoys listening to the babble of their mind, that I chose this name. In any case, thank you for spending your time scanning the drizzle of thoughts in front of your eyes; it means... something to me, though I'm not sure what. </p>
+	<body class='profile-page'>
+		<div id='topIntro'>
+			<h1>Yuve</h1>
+			<p>full-time cultivator researcher</p>
+		</div>
 
-		<h2> Can Void eleaborate on their interests?</h2>
-		<p> Yes, I can. In fact, here they are:</p>
-		<ol class="interests">
-			<li>Space, eldritch, and the beauty that exists in the stars.
-			<ul class="interest">
-				<li> I enjoy the feeling of having the stars surround me; being in the middle of their cold embrace.</li>
-				<li> Although I actually have not read many Eldritch stories, I love the idea: creepy, cruel, and space-related monsters. Maybe I love the idea itself instead of the monsters: that there are bigger things out there than our warm planet.</li>
+		<div id='mainContent'>
+			<h2>My Info</h2>
+			<p>My pseudonym is Yuvemil, but you can call me Yuve for short. Welcome to the index html of my home! (not sure if peeps say that)</p>
+
+			<p>I made this page because I'm lonely. I want to make things, to own and, most importantly, be free and autonomous. The idea of being a slave to any sort of concept or system keeps me up at night, leading me to explore various paths of self-sustances for my life. Since I enjoy computers and the like, this translates into things like: 
+			<ul>
+				<li>setting up a dual-boot system with Windows and Arch Linux on my pc,</li>
+				<li>using firefox-hardened browsers (librewolf), vpns, and ethernet-only connections when I'm on my personal pc,</li>
+				<li>creating backups of my home dir (even if I have legit nothing interesting),</li>
+				<li>pirating and/or torrenting anything that comes out of a million+ revenue corporation, and now</li>
+				<li>making my own site, with my own domain...</li>
 			</ul>
-			</li>
+			<p>Writing this all out kinda makes me look like a tin-foil psycho LOL, but trust--I ain't like that; I just enjoy it cause its fun, honestly.</p>
+			<p>I have plenty of other hobbies like reading (non-fiction only!1!111!!), playing video games occasionally, and exploring math subjects. Ngl, linear algebra, followed by the introduction to imaginary numbers really got me into that, like, spatial math--not that I'm any good, hahaha--its just fun to learn from time to time.</p>
 
-			<li>Video games, from time to time.
-			<ul class="interest">
-				<li> I do enjoy my fair share of video games from time to time. I've recently been playing TF2 and League of Legends again--games that I haven't played in quite a while. It's fun. </li>
+			<h2>Recent Activity</h2>
+			<ul>
+				<li>Learning HTML, CSS, and JS</li>
+				<li>Updating my rmpc library with yt-dlp</li>
+				<li>Playing League of Legends</li>
 			</ul>
-			</li>
-		</ol>
-		<h2>What are Void's current updates?</h2>
-		<p> I am currently writing this html + css for fun; hopefully, I will be able to create my own personal "indie" site and have e-neighbours to my personal site.</p>
-		<h2>Wandering Messages</h2>
-		<form>
-			Enter comment:
-			<input class='userComment' type='text'>
-			<input type='submit'>
-		</form>
-		<ul class='comments'>
-		</ul>
-		<script> //add user comments
-			document.querySelector('form').addEventListener('submit', submitMessage);
+		</div>
 
-			function submitMessage(event) {
+		<div id='topRightSidebar'>
+			<h2>Update History</h2>
+			<ul>
+				<li><time datetime='2026-07-18'>July 18th, 2026</time>: Added profile page skeleton.</li>
+			</ul>
+		</div>
 
+		<div id='midRightSidebar'>
+			<h2>Pages</h2>
+			<nav><a href='souvenirs.html'>Souvenirs</a></nav>
+		</div>
+
+		<div id='bottomRightSidebar'>
+			<h2>Neighbours</h2>
+			<p>None so far...</p>
+			<ul>
+			</ul>
+		</div>
+
+		<div id='bottomComments'>
+
+			<h2>Wandering Messages</h2>
+			<form>
+				<input id='commentTextBox' type='text'>
+				<input id='commentSubmissionButton' type='submit'>
+			</form>
+			<ul id='commentSection'>
+			</ul>
+		</div>
+
+		<script>
+			let commentArray;
+			if(!localStorage.getItem('userComments')) {
+				commentArray = [];
+			} else {
+				commentArray = JSON.parse(localStorage.getItem('userComments'));
+				for (let comment of commentArray) {
+					const newLi = document.createElement('li');
+					newLi.textContent = comment;
+					document.querySelector('#commentSection').appendChild(newLi);
+				}
+			}
+
+			document.querySelector('#commentSubmissionButton').addEventListener('click', submitComment)
+
+			function submitComment(event) {
 				const newLi = document.createElement('li');
-				const userComment = event.target.querySelector('.userComment');
+				const userComment = document.querySelector('#commentTextBox')
 				newLi.textContent = userComment.value;
-				//add to local storage
-				userCommentArray.push(newLi.textContent);
-				localStorage.setItem('userComments', JSON.stringify(userCommentArray));
+				document.querySelector('#commentSection').appendChild(newLi);
+
+				// add to local storage
+				commentArray.push(newLi.textContent);
+				localStorage.setItem('userComments', JSON.stringify(commentArray));
 				//
-				document.querySelector('.comments').appendChild(newLi);
-				userComment.value = "";
+
+				userComment.value = '';
 				event.preventDefault();
 			}
 
 		</script>
 
-		<script> //add explanations to the two interests cards
-			document.querySelectorAll(".interest").forEach((explanation) => {
-				explanation.addEventListener("click", (explanationClick) => {
-					if(explanationClick.target.closest("li")) {
-						const  newUserText = prompt("Add new explanation to this list!");
-						newUserText;
-						const newListItem = document.createElement("li");
-						newListItem.textContent = newUserText;
-						explanation.appendChild(newListItem);
-					}
-				})
-			})
-		</script>
-		<script> //add locally stored user comments to list
-			if (localStorage.getItem('userComments')) {
-				var userCommentArray = localStorage.getItem('userComments');
-					for (let comment of JSON.parse(userCommentArray)) {
-						const newLi = document.createElement('li');
-						newLi.textContent = comment;
-						document.querySelector('.comments').appendChild(newLi);
-					}
-				} else {
-					console.log("No user comment array detected in local storage");
-					var userCommentArray = [];
-				}
-		</script>
 
 	</body>
 </html>
+
+
+
 
