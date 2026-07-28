@@ -52,28 +52,6 @@ body {
 
 }
 
-.interests {
-	line-height: 2;
-	display: flex;
-	gap: 5rem;
-	flex-wrap: wrap;
-}
-
-.interests > li {
-	padding: 2rem;
-	border: 1px solid var(--old-gods);
-	list-style: none;
-	flex: 1 1 250px;
-	color: var(--old-gods);
-}
-
-.interests > li:hover {
-	box-shadow: 5px 5px 500px var(--old-gods), -5px -5px 500px var(--old-gods);
-}
-
-.interest {
-	color: var(--known);
-}
 
 h1, h2 {
 	font-family: 'Cinzel', serif;
@@ -117,8 +95,7 @@ h1, h2 {
 			'topRight'
 			'midRight'
 			'bottomRight'
-			'bottom'
-			'comments';
+			'bottom';
 	}
 }
 
@@ -160,6 +137,3 @@ nav a {
 	grid-area: bottom;
 }
 
-#commentSection {
-	grid-area: comments;
-}
